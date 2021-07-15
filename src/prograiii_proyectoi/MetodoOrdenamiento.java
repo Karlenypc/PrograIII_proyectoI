@@ -12,77 +12,29 @@ package prograiii_proyectoi;
 public class MetodoOrdenamiento {    //BubbleSort
 
     public void bubbleSort(ListaDoble lista) {
+        if (lista.getInicio() != null) {
+            Nodo aux = null, aux2 = null;
+            int temp = 0;
 
-        Nodo aux;
-        boolean changes = false;
+            aux = lista.getInicio();
 
-        lista.setActual(lista.getInicio());
-        while (true) {
+            while (aux != lista.getFin()) {
+                aux2 = aux.getNext();
 
-            for (int i = 0; i < lista.getLargo(); i++) {
-                if (lista.getActual().getValue() > lista.getActual().getNext().getValue()) {
-                    aux = lista.getActual().getNext();
-                    System.out.println(aux.getValue());
-                    lista.mostrar();
-                    //lista.getActual().setNext(lista.getActual());
-                    //System.out.println(lista.getActual().getNext().getValue());
-                    //lista.mostrar();
-                    lista.getActual().setPrevious(aux);
-                    System.out.println(lista.getActual().getValue());
-                    System.out.println(lista.getActual().getPrevious().getValue());
-                    lista.mostrar();
-                    System.out.println(lista.getActual().getNext().getValue());
-                    changes = true;
+                while (aux2 != null) {
+                    if (aux.getValue() > aux2.getValue()) 
+                    {
+                        temp = aux.getValue();
+                        aux.setValue(aux2.getValue());
+                        aux2.setValue(temp);
+                    }
+                    aux2 = aux2.getNext();
                 }
-                lista.setActual(lista.getActual().getNext());
-                System.out.println(lista.getActual().getValue());
-            }
-            if (changes == false) {
-                break;
-            }
-        }
-    }
-
-    public void prueba(ListaDoble lista) {
-
-        Nodo aux = lista.getInicio();
-        boolean changes = false;
-
-        while (true) {
-
-            for (int i = 1; i < lista.getLargo(); i++) {
-                Nodo aux2 = aux.getNext();
-                System.out.println(aux2.getValue());
-                if (aux.getValue() > aux2.getValue()) {
-                    int auxDato = aux.getValue();
-                    aux.setValue(aux2.getValue());
-                    aux2.setValue(auxDato);
-                    changes = true;
-                } else {
-                    changes = false;
-                }
-
-                aux2 = aux2.getNext();
-                //System.out.println(aux2.getValue());
                 aux = aux.getNext();
-                System.out.println(aux.getValue());
-                
-                
-                if (aux2 == null) {
-                    aux = lista.getInicio();
-                    aux2 = aux.getNext();
-                }
-   
             }
-
-            if (changes == false) {
-                break;
-            }
-
-            lista.mostrar();
+        } else {
+            System.out.println("Lista no inicializada!");
         }
-
     }
-    //aux = aux.getNext();
+    
 }
-
