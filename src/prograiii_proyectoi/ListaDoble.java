@@ -10,7 +10,7 @@ package prograiii_proyectoi;
  * @author Karlenypc
  */
 public class ListaDoble {
-    
+
     private Nodo inicio;
     private Nodo actual;
     private Nodo fin;
@@ -54,6 +54,21 @@ public class ListaDoble {
         }
         largo++;
     }
+
+    //Metodo para eliminar el ultimo dato de la lista
+    public int extraerFinal() {
+        int aux = fin.getValue();
+        fin = fin.getPrevious();
+        if (fin != null) {
+            fin.setNext(null);
+        } else {
+            inicio = null;
+        }
+        return aux;
+    }
+
+    
+    //Metodo para eliminar un valor especifico FALTA!!!
     
     public void mostrar() {
         Nodo temp = inicio;
@@ -63,7 +78,45 @@ public class ListaDoble {
         }
         System.out.println("");
     }
+    
+    /*
+    public void mostrar(ListaDoble lista) {
+        if(lista.getInicio() != null) {
+        Nodo temp = inicio;
+        while (temp != null) {
+            System.out.print("<=>" + "[" + temp.getValue() + "]" + "<=>");
+            temp = temp.getNext();
+        }
+        System.out.println("");
+        
+        } else {
+            System.out.println("La lista se encuentra vacia!");
+        }
+    }*/
 
+    //Mostrar invertido
+    public void mostrarRegreso() {
+        Nodo temp = fin;
+        while (temp != null) {
+            System.out.print("<=>" + "[" + temp.getValue() + "]" + "<=>");
+            temp = temp.getPrevious();
+        }
+        System.out.println("");
+    }
+
+    public ListaDoble clonarLista(ListaDoble lista) {
+        ListaDoble clonLista = new ListaDoble();
+        Nodo temp = lista.getInicio();
+        for(int i = 0; i < lista.getLargo(); i++) 
+        {
+            clonLista.insertar_alFinal(temp.getValue());
+            temp = temp.getNext();
+        }
+        lista.mostrar();
+        clonLista.mostrar();
+        return clonLista;
+    }
+    
     public Nodo getInicio() {
         return inicio;
     }
@@ -91,5 +144,5 @@ public class ListaDoble {
     public int getLargo() {
         return largo;
     }
-
+    
 }
