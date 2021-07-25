@@ -11,9 +11,10 @@ package prograiii_proyectoi;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
-    VentanaInicial vI = new VentanaInicial(this, false);
+    //VentanaInicial vI = new VentanaInicial();
+    MetodoOrdenamiento bubbleSort = new MetodoOrdenamiento();
     public static ListaDoble lista = new ListaDoble();
-
+    public static String mostrarIteracionList = "";
     /**
      * Creates new form VentanaPrincipal
      */
@@ -21,8 +22,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.setVisible(true);
         //VentanaInicial vI = new VentanaInicial(this, false);
-        vI.setVisible(true);
+        //vI.setVisible(true);
 
         //this.lista = vI.lista.;
     }
@@ -37,9 +39,44 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jbtnOrdenamiento = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextshowList = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jbtnOrdenamiento.setText("Aplicar Ordenamiento BubbleSort");
+        jbtnOrdenamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnOrdenamientoActionPerformed(evt);
+            }
+        });
+
+        jTextshowList.setColumns(20);
+        jTextshowList.setRows(5);
+        jTextshowList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextshowListMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextshowList);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 804, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -52,17 +89,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(255, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jbtnOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(192, 192, 192))
+                .addGap(98, 98, 98))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(jButton1)
-                .addContainerGap(199, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtnOrdenamiento))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton1)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,11 +129,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbtnOrdenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnOrdenamientoActionPerformed
+        // TODO add your handling code here:
+        mostrarIteracionList = bubbleSort.bubbleSortIteraciones(lista);
+        jTextshowList.append(mostrarIteracionList);
+    }//GEN-LAST:event_jbtnOrdenamientoActionPerformed
+
+    private void jTextshowListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextshowListMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextshowListMouseClicked
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //ListaDoble metodo = new ListaDoble();
-        lista = lista.clonarLista(vI.lista);
-        lista.mostrar();
+        mostrarIteracionList = lista.mostrarIteracion();
+        //mostrarIteracionList = bubbleSort.bubbleSort(lista);
+        jTextshowList.setText("RESUMEN LISTA ORDENADA : \n" + "\n" + mostrarIteracionList + "\n***Metodo Ordenamiento***");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -124,5 +184,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextArea jTextshowList;
+    private javax.swing.JButton jbtnOrdenamiento;
     // End of variables declaration//GEN-END:variables
 }

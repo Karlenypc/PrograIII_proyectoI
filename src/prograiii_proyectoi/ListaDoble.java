@@ -79,6 +79,17 @@ public class ListaDoble {
         System.out.println("");
     }
     
+    public String mostrarIteracion() {
+        String resultado = "";
+        Nodo temp = inicio;
+        while (temp != null) {
+            resultado += "<=>" + "[" + temp.getValue() + "]" + "<=>";
+            temp = temp.getNext();
+        }
+        resultado += "\n" + "\n";
+        return resultado;
+    }
+    
     /*
     public void mostrar(ListaDoble lista) {
         if(lista.getInicio() != null) {
@@ -104,6 +115,7 @@ public class ListaDoble {
         System.out.println("");
     }
 
+    //Metodo clonacion de una lista
     public ListaDoble clonarLista(ListaDoble lista) {
         ListaDoble clonLista = new ListaDoble();
         Nodo temp = lista.getInicio();

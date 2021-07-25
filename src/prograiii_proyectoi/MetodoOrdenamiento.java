@@ -11,14 +11,55 @@ package prograiii_proyectoi;
  */
 public class MetodoOrdenamiento {    //BubbleSort
 
-    public void bubbleSort(ListaDoble lista) {
+    public String bubbleSortIteraciones(ListaDoble lista) {
+        
+        String resultado = "";
+        boolean cambios = false;
+        
         if (lista.getInicio() != null) {
+            
             Nodo aux = null, aux2 = null;
             int temp = 0;
-
             aux = lista.getInicio();
 
             while (aux != lista.getFin()) {
+                
+                aux2 = aux.getNext();
+
+                while (aux2 != null) {
+                    if (aux.getValue() > aux2.getValue()) {
+                        temp = aux.getValue();
+                        aux.setValue(aux2.getValue());
+                        aux2.setValue(temp);
+                        cambios = true;
+                    }
+                    aux2 = aux2.getNext();
+                    if (cambios) {
+                        resultado += lista.mostrarIteracion();
+                    }
+                    cambios = false;
+                }
+                aux = aux.getNext();
+                //resultado += lista.mostrarIteracion();
+            }
+        } else {
+            System.out.println("Lista no inicializada!");
+        }
+        return resultado;
+    }
+    
+    public String bubbleSort(ListaDoble lista) {
+        
+        String resultado = "";
+        
+        if (lista.getInicio() != null) {
+            
+            Nodo aux = null, aux2 = null;
+            int temp = 0;
+            aux = lista.getInicio();
+
+            while (aux != lista.getFin()) {
+                
                 aux2 = aux.getNext();
 
                 while (aux2 != null) {
@@ -31,10 +72,11 @@ public class MetodoOrdenamiento {    //BubbleSort
                     aux2 = aux2.getNext();
                 }
                 aux = aux.getNext();
+                resultado = lista.mostrarIteracion();
             }
         } else {
             System.out.println("Lista no inicializada!");
         }
+        return resultado;
     }
-    
 }

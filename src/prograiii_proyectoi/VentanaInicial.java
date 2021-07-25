@@ -9,23 +9,17 @@ package prograiii_proyectoi;
  *
  * @author Karlenypc
  */
-public class VentanaInicial extends javax.swing.JDialog {
+public class VentanaInicial extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaInicial
      */
-    
     public static ListaDoble lista = new ListaDoble();
-    
-    public VentanaInicial(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+
+    public VentanaInicial() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-    }
-
-    VentanaInicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -37,7 +31,7 @@ public class VentanaInicial extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        SeleccionMecanismo = new javax.swing.ButtonGroup();
+        seleccionMecanismo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         rbtnAleatorio = new javax.swing.JRadioButton();
         rbtnArchivotxt = new javax.swing.JRadioButton();
@@ -47,10 +41,9 @@ public class VentanaInicial extends javax.swing.JDialog {
         txtRango2 = new javax.swing.JLabel();
         btnGenerar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("OBTENER LISTA NUMEROS");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        SeleccionMecanismo.add(rbtnAleatorio);
+        seleccionMecanismo.add(rbtnAleatorio);
         rbtnAleatorio.setText("1. De forma aleatoria");
         rbtnAleatorio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -63,7 +56,7 @@ public class VentanaInicial extends javax.swing.JDialog {
             }
         });
 
-        SeleccionMecanismo.add(rbtnArchivotxt);
+        seleccionMecanismo.add(rbtnArchivotxt);
         rbtnArchivotxt.setText("2. Cargar mediante un  archivo de texto");
         rbtnArchivotxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -112,17 +105,17 @@ public class VentanaInicial extends javax.swing.JDialog {
                             .addComponent(rbtnArchivotxt)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
-                                .addComponent(txtRango2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jFieldRango, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(txtRango1)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtRango2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jFieldRango, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtRango1))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(245, 245, 245)
                         .addComponent(btnGenerar)))
-                .addGap(27, 27, 27))
+                .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +134,7 @@ public class VentanaInicial extends javax.swing.JDialog {
                 .addComponent(rbtnArchivotxt)
                 .addGap(18, 18, 18)
                 .addComponent(btnGenerar)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,21 +143,35 @@ public class VentanaInicial extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addGap(0, 41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void rbtnAleatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtnAleatorioMouseClicked
+        // TODO add your handling code here:
+        this.txtRango1.setEnabled(true);
+        this.txtRango2.setEnabled(true);
+        this.jFieldRango.setEnabled(true);
+    }//GEN-LAST:event_rbtnAleatorioMouseClicked
+
     private void rbtnAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnAleatorioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnAleatorioActionPerformed
+
+    private void rbtnArchivotxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtnArchivotxtMouseClicked
+        // TODO add your handling code here:
+        this.txtRango1.setEnabled(false);
+        this.txtRango2.setEnabled(false);
+        this.jFieldRango.setEnabled(false);
+    }//GEN-LAST:event_rbtnArchivotxtMouseClicked
 
     private void rbtnArchivotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnArchivotxtActionPerformed
         // TODO add your handling code here:
@@ -177,31 +184,22 @@ public class VentanaInicial extends javax.swing.JDialog {
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         // TODO add your handling code here:
         ObtenerListaNumeros obt = new ObtenerListaNumeros();
-        if(rbtnAleatorio.isSelected()) {
+        if (rbtnAleatorio.isSelected()) {
             String obtenerRango = jFieldRango.getText();
             int rango = Integer.parseInt(obtenerRango);
             lista = obt.generarAleatorio(rango);
-        
-        } else if(rbtnArchivotxt.isSelected()) {
+
+        } else if (rbtnArchivotxt.isSelected()) {
             //...
         }
-        lista.mostrar();
+        
+        VentanaPrincipal v = new VentanaPrincipal();
+        v.lista = lista.clonarLista(lista);
+        v.mostrarIteracionList = v.lista.mostrarIteracion();
+        v.jTextshowList.setText(v.mostrarIteracionList);
+        //v.lista.mostrar();
         this.setVisible(false);
     }//GEN-LAST:event_btnGenerarActionPerformed
-
-    private void rbtnAleatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtnAleatorioMouseClicked
-        // TODO add your handling code here:
-        this.txtRango1.setEnabled(true);
-        this.txtRango2.setEnabled(true);
-        this.jFieldRango.setEnabled(true);
-    }//GEN-LAST:event_rbtnAleatorioMouseClicked
-
-    private void rbtnArchivotxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtnArchivotxtMouseClicked
-        // TODO add your handling code here:
-        this.txtRango1.setEnabled(false);
-        this.txtRango2.setEnabled(false);
-        this.jFieldRango.setEnabled(false);
-    }//GEN-LAST:event_rbtnArchivotxtMouseClicked
 
     /**
      * @param args the command line arguments
@@ -229,29 +227,23 @@ public class VentanaInicial extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(VentanaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VentanaInicial dialog = new VentanaInicial(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new VentanaInicial().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup SeleccionMecanismo;
     private javax.swing.JButton btnGenerar;
     private javax.swing.JTextField jFieldRango;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton rbtnAleatorio;
     private javax.swing.JRadioButton rbtnArchivotxt;
+    private javax.swing.ButtonGroup seleccionMecanismo;
     private javax.swing.JLabel txtMecanismo;
     private javax.swing.JLabel txtRango1;
     private javax.swing.JLabel txtRango2;
