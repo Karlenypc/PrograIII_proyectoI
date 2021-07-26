@@ -5,6 +5,9 @@
  */
 package prograiii_proyectoi;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author Karlenypc
@@ -190,9 +193,18 @@ public class VentanaInicial extends javax.swing.JFrame {
             lista = obt.generarAleatorio(rango);
 
         } else if (rbtnArchivotxt.isSelected()) {
-            //...
+            JFileChooser fichero = new JFileChooser();
+            int seleccion = fichero.showOpenDialog(this);
+
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+
+                File fich = fichero.getSelectedFile();
+                lista = obt.insetarFile(fich.getAbsolutePath());
+
+            }
+
         }
-        
+
         VentanaPrincipal v = new VentanaPrincipal();
         v.lista = lista.clonarLista(lista);
         v.mostrarIteracionList = v.lista.mostrarIteracion();

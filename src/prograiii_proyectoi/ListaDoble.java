@@ -11,10 +11,10 @@ package prograiii_proyectoi;
  */
 public class ListaDoble {
 
-    private Nodo inicio;
-    private Nodo actual;
-    private Nodo fin;
-    private int largo;
+     Nodo inicio;
+     Nodo actual;
+     Nodo fin;
+    int largo;
 
     public ListaDoble() //Inicializamos la lista
     {

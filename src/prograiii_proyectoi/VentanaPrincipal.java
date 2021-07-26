@@ -5,6 +5,8 @@
  */
 package prograiii_proyectoi;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Karlenypc
@@ -130,9 +132,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnOrdenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnOrdenamientoActionPerformed
-        // TODO add your handling code here:
+         long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
+        TInicio = System.currentTimeMillis(); //Tomamos la hora en que inicio el algoritmo y la almacenamos en la variable inicio        // TODO add your handling code here:
         mostrarIteracionList = bubbleSort.bubbleSortIteraciones(lista);
-        jTextshowList.append(mostrarIteracionList);
+         TFin = System.currentTimeMillis(); //Tomamos la hora en que finalizó el algoritmo y la almacenamos en la variable T
+        tiempo = TFin - TInicio; //Calculamos los milisegundos de diferencia
+        jTextshowList.append(mostrarIteracionList + "\n" + "El proceso de ordenamiento ha demorado " +tiempo + " milisegudos");
+        
     }//GEN-LAST:event_jbtnOrdenamientoActionPerformed
 
     private void jTextshowListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextshowListMouseClicked
@@ -140,7 +146,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextshowListMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
+            Busqueda bus = new Busqueda();
+            int busq = Integer.parseInt(JOptionPane.showInputDialog(this, "Que numero desea buscar"));
+            bus.busquedaBinaria(lista,busq);
         mostrarIteracionList = lista.mostrarIteracion();
         //mostrarIteracionList = bubbleSort.bubbleSort(lista);
         jTextshowList.setText("RESUMEN LISTA ORDENADA : \n" + "\n" + mostrarIteracionList + "\n***Metodo Ordenamiento***");
