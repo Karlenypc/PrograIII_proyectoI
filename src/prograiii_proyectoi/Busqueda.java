@@ -37,24 +37,18 @@ public class Busqueda extends ListaDoble {
         int centro;
         int superior = lista.getLargo() - 1;
         lista.actual = lista.inicio;
-        System.out.println(superior);
 
         // metodo para busqueda Binaria
         while (inferior <= superior) {
-            System.out.println(superior);
             centro = (superior + inferior) / 2;
-            System.out.println(superior);
             lista.actual = lista.obtenerIndex(lista, centro - 1);
-            System.out.println(lista.actual.getValue());
             if (lista.actual.getValue() == bus) {
                 System.out.println("el numero buscado esta en la posicion " + (centro));
                 break;
             } else if (bus < lista.actual.getValue()) {
                 superior = centro - 1;
-                System.out.println(superior);
             } else {
                 inferior = centro + 1;
-                System.out.println(inferior);
             }
         }
     }
