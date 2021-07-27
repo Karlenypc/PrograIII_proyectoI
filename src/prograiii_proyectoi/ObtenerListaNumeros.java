@@ -16,11 +16,11 @@ import javax.swing.JFileChooser;
 public class ObtenerListaNumeros {
      ListaDoble lista = new ListaDoble();
     //Metodo generar lista de forma aleatoria
-    public ListaDoble generarAleatorio(int rango) {
+    public ListaDoble generarAleatorio(int rangoMayor,int rangoMenor) {
        
         // actualizar metodos con los rangos de 1 a 100, 100 a 1000, 1000 a 10000. 
-        for (int i = 1; i <= 25; i++) {
-            int numero = (int) (Math.random() * rango + 1);
+        for (int i = rangoMenor; i <= 25; i++) {
+            int numero = (int) (Math.random() * rangoMayor + 1);
             lista.insertar_alFinal(numero);
         }
         //lista.mostrar();

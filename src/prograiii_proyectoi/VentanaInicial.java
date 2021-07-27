@@ -39,10 +39,15 @@ public class VentanaInicial extends javax.swing.JFrame {
         rbtnAleatorio = new javax.swing.JRadioButton();
         rbtnArchivotxt = new javax.swing.JRadioButton();
         txtMecanismo = new javax.swing.JLabel();
-        jFieldRango = new javax.swing.JTextField();
         txtRango1 = new javax.swing.JLabel();
         txtRango2 = new javax.swing.JLabel();
         btnGenerar = new javax.swing.JButton();
+        txtRango3 = new javax.swing.JLabel();
+        txtRango4 = new javax.swing.JLabel();
+        jRadio100a1000 = new javax.swing.JRadioButton();
+        jRadio1a100 = new javax.swing.JRadioButton();
+        jRadio1000a10000 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,17 +79,10 @@ public class VentanaInicial extends javax.swing.JFrame {
 
         txtMecanismo.setText("Seleccione un mecanismo:");
 
-        jFieldRango.setEnabled(false);
-        jFieldRango.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFieldRangoActionPerformed(evt);
-            }
-        });
-
         txtRango1.setText("Ingrese el rango que desea:");
         txtRango1.setEnabled(false);
 
-        txtRango2.setText("Entre  1   y...");
+        txtRango2.setText("100 - 1000");
         txtRango2.setEnabled(false);
 
         btnGenerar.setText("Generar");
@@ -94,30 +92,48 @@ public class VentanaInicial extends javax.swing.JFrame {
             }
         });
 
+        txtRango3.setText("1 - 100");
+        txtRango3.setEnabled(false);
+
+        txtRango4.setText("1000-10000");
+        txtRango4.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(rbtnArchivotxt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addComponent(btnGenerar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbtnAleatorio)
-                            .addComponent(txtMecanismo, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbtnArchivotxt)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtRango1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtRango2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jFieldRango, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtRango1))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addComponent(btnGenerar)))
+                                        .addGap(15, 15, 15)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jRadio1a100)
+                                            .addComponent(txtRango3))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(txtRango2)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(txtRango4))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(36, 36, 36)
+                                                .addComponent(jRadio100a1000)
+                                                .addGap(48, 48, 48)
+                                                .addComponent(jRadio1000a10000))))))
+                            .addComponent(rbtnAleatorio)
+                            .addComponent(txtMecanismo, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
@@ -125,18 +141,27 @@ public class VentanaInicial extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(txtMecanismo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rbtnAleatorio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtRango1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFieldRango, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtRango2))
-                .addGap(18, 18, 18)
-                .addComponent(rbtnArchivotxt)
-                .addGap(18, 18, 18)
-                .addComponent(btnGenerar)
+                    .addComponent(txtRango2)
+                    .addComponent(txtRango4)
+                    .addComponent(txtRango3))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(btnGenerar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadio100a1000)
+                            .addComponent(jRadio1a100)
+                            .addComponent(jRadio1000a10000))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbtnArchivotxt)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -145,14 +170,24 @@ public class VentanaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(203, 203, 203)
+                    .addComponent(jRadioButton3)
+                    .addContainerGap(203, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 41, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(136, 136, 136)
+                    .addComponent(jRadioButton3)
+                    .addContainerGap(136, Short.MAX_VALUE)))
         );
 
         pack();
@@ -160,9 +195,12 @@ public class VentanaInicial extends javax.swing.JFrame {
 
     private void rbtnAleatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtnAleatorioMouseClicked
         // TODO add your handling code here:
-        this.txtRango1.setEnabled(true);
+        this.txtRango3.setEnabled(true);
+        this.txtRango4.setEnabled(true);
         this.txtRango2.setEnabled(true);
-        this.jFieldRango.setEnabled(true);
+        this.jRadio1a100.setEnabled(true);
+        this.jRadio100a1000.setEnabled(true);
+        this.jRadio1000a10000.setEnabled(true);
     }//GEN-LAST:event_rbtnAleatorioMouseClicked
 
     private void rbtnAleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnAleatorioActionPerformed
@@ -171,26 +209,30 @@ public class VentanaInicial extends javax.swing.JFrame {
 
     private void rbtnArchivotxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtnArchivotxtMouseClicked
         // TODO add your handling code here:
-        this.txtRango1.setEnabled(false);
+        this.txtRango3.setEnabled(false);
+        this.txtRango4.setEnabled(false);
         this.txtRango2.setEnabled(false);
-        this.jFieldRango.setEnabled(false);
+        this.jRadio1a100.setEnabled(false);
+        this.jRadio100a1000.setEnabled(false);
+        this.jRadio1000a10000.setEnabled(false);
     }//GEN-LAST:event_rbtnArchivotxtMouseClicked
 
     private void rbtnArchivotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnArchivotxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbtnArchivotxtActionPerformed
 
-    private void jFieldRangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFieldRangoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFieldRangoActionPerformed
-
     private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
         // TODO add your handling code here:
         ObtenerListaNumeros obt = new ObtenerListaNumeros();
         if (rbtnAleatorio.isSelected()) {
-            String obtenerRango = jFieldRango.getText();
-            int rango = Integer.parseInt(obtenerRango);
-            lista = obt.generarAleatorio(rango);
+            if(jRadio1a100.isSelected()){
+               lista = obt.generarAleatorio(100,1);
+            } else if(jRadio100a1000.isSelected()){
+                lista =obt.generarAleatorio(1000, 100);
+            }else if(jRadio1000a10000.isSelected()){
+                lista = obt.generarAleatorio(10000,1000);
+            }
+            
 
         } else if (rbtnArchivotxt.isSelected()) {
             JFileChooser fichero = new JFileChooser();
@@ -251,13 +293,18 @@ public class VentanaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerar;
-    private javax.swing.JTextField jFieldRango;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadio1000a10000;
+    private javax.swing.JRadioButton jRadio100a1000;
+    private javax.swing.JRadioButton jRadio1a100;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton rbtnAleatorio;
     private javax.swing.JRadioButton rbtnArchivotxt;
     private javax.swing.ButtonGroup seleccionMecanismo;
     private javax.swing.JLabel txtMecanismo;
     private javax.swing.JLabel txtRango1;
     private javax.swing.JLabel txtRango2;
+    private javax.swing.JLabel txtRango3;
+    private javax.swing.JLabel txtRango4;
     // End of variables declaration//GEN-END:variables
 }
