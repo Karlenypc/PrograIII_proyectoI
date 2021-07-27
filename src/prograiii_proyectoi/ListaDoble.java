@@ -129,6 +129,19 @@ public class ListaDoble {
         return clonLista;
     }
     
+    public Nodo obtenerIndex(ListaDoble lista, int index) {
+        lista.actual = lista.inicio;
+        for(int i = 0; i < lista.getLargo(); i++) {
+            if (i == index) {
+                break;
+            } 
+            else {
+                lista.actual = lista.actual.getNext();
+            }
+        }
+        return lista.actual; 
+    }
+    
     public Nodo getInicio() {
         return inicio;
     }

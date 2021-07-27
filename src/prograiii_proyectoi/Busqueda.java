@@ -14,7 +14,7 @@ public class Busqueda extends ListaDoble {
 
     //Busqueda Secuencial
     public void busquedaSecuencial(ListaDoble lista, int bus) {
- 
+
         Nodo temp = lista.getInicio();
         for (int i = 0; i < lista.getLargo(); i++) {
 
@@ -31,24 +31,30 @@ public class Busqueda extends ListaDoble {
         }
     }
 
-//
-//        //Busqueda Binaria
+    //Busqueda Binaria LISTA
     public void busquedaBinaria(ListaDoble lista, int bus) {
         int inferior = 0;
         int centro;
         int superior = lista.getLargo() - 1;
+        lista.actual = lista.inicio;
+        System.out.println(superior);
 
         // metodo para busqueda Binaria
         while (inferior <= superior) {
+            System.out.println(superior);
             centro = (superior + inferior) / 2;
-            lista.actual.setValue(centro);
+            System.out.println(superior);
+            lista.actual = lista.obtenerIndex(lista, centro - 1);
+            System.out.println(lista.actual.getValue());
             if (lista.actual.getValue() == bus) {
-                System.out.println("el numero buscado esta en la posicion " + (centro + 1));
+                System.out.println("el numero buscado esta en la posicion " + (centro));
                 break;
-            } else if (bus< lista.actual.getValue()) {
+            } else if (bus < lista.actual.getValue()) {
                 superior = centro - 1;
+                System.out.println(superior);
             } else {
                 inferior = centro + 1;
+                System.out.println(inferior);
             }
         }
     }

@@ -29,7 +29,7 @@ public class ObtenerListaNumeros {
     
     //Metodo generar a traves de archivo txt 
      public ListaDoble insetarFile(String ruta){
-         int numeroEntero;
+        int numeroEntero;
         File f = new File(ruta);
         try (Scanner entrada = new Scanner(f)){
             System.out.println( "numeros son :");
