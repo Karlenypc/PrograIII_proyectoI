@@ -75,28 +75,36 @@ public class Busqueda extends ListaDoble {
         int fina = numElementos;
 // Índice = Bajo + (((Tecla – Arr[Low]) * (Alto – Bajo)) / Arr[High] -Arr[Low] ). algoritmo 
         for (int j = 0; j < lista.getLargo(); j++) {
-            nBus = inicial + ((bus - lista.inicio.getValue()) * (fina - inicial)) / lista.fin.getValue() - lista.inicio.getValue();
+            nBus = inicial + (((bus - lista.inicio.getValue()) * (fina - inicial)) / lista.fin.getValue() - lista.inicio.getValue());
             System.out.println(nBus);
+            System.out.println(lista.inicio.getValue());
+            System.out.println(lista.fin.getValue());
 
             if (nBus > fina) {
                 break;
-            } else if (nBus < 0) {
+            } else if (nBus <= 0) {
                 nBus = inicial;
             }
             lista.actual = lista.obtenerIndex(lista, nBus);
-            if (nBus >= inicial && nBus <= fina) {
+            //if (nBus >= inicial && nBus <= fina) {
                 if ((lista.actual.getValue() == bus)) {
                     System.out.println("el numero buscado esta en la posicion " + (nBus));
                     buscas = true;
+                    nBus = 0;
+                    inicial = 0;
+                    fina = numElementos;
                     break;
                     //esta parte del metodo esta fallando, debe avanzar o retroceder dependiendo del valor de bus(numero buscado)
                 } else if (lista.actual.getValue() < bus) {
-                    inicial = inicial - 1;
-
+                    inicial = nBus + 1;
+                    //lista.actual = lista.actual.getNext();
+                    buscas = false;
                 } else if (lista.actual.getValue() > bus) {
-                    inicial = inicial + 1;
+                    fina = nBus - 1;
+                    //lista.actual = lista.actual.getPrevious();
+                    buscas = false;
                 }
-            }
+            //}
             if (buscas == false) {
                 System.out.println("el numero no se encuentra en la lista");
             }
