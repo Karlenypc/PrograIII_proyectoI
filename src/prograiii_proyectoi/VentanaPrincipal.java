@@ -17,6 +17,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     MetodoOrdenamiento bubbleSort = new MetodoOrdenamiento();
     public static ListaDoble lista = new ListaDoble();
     public static String mostrarIteracionList = "";
+
     /**
      * Creates new form VentanaPrincipal
      */
@@ -80,7 +81,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Realizar Busqueda");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -92,29 +93,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jbtnOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)))
                 .addContainerGap(28, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jbtnOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(98, 98, 98))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jbtnOrdenamiento))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton1)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnOrdenamiento)
+                    .addComponent(jButton1))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -132,13 +131,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnOrdenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnOrdenamientoActionPerformed
-         long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
+        long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
         TInicio = System.currentTimeMillis(); //Tomamos la hora en que inicio el algoritmo y la almacenamos en la variable inicio        // TODO add your handling code here:
         mostrarIteracionList = bubbleSort.bubbleSortIteraciones(lista);
-         TFin = System.currentTimeMillis(); //Tomamos la hora en que finalizó el algoritmo y la almacenamos en la variable T
+        TFin = System.currentTimeMillis(); //Tomamos la hora en que finalizó el algoritmo y la almacenamos en la variable T
         tiempo = TFin - TInicio; //Calculamos los milisegundos de diferencia
-        jTextshowList.append(mostrarIteracionList + "\n" + "El proceso de ordenamiento ha demorado " +tiempo + " milisegudos");
-        
+        jTextshowList.append(mostrarIteracionList + "\n" + "El proceso de ordenamiento ha demorado " + tiempo + " milisegudos");
+
     }//GEN-LAST:event_jbtnOrdenamientoActionPerformed
 
     private void jTextshowListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextshowListMouseClicked
@@ -146,10 +145,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextshowListMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            // TODO add your handling code here:
-            Busqueda bus = new Busqueda();
-            int busq = Integer.parseInt(JOptionPane.showInputDialog(this, "Que numero desea buscar"));
-            bus.busquedaBinaria(lista,busq);
+        // TODO add your handling code here:
+        Busqueda bus = new Busqueda();
+        int busq;
+        int seleccion = JOptionPane.showOptionDialog(null, "Seleccione una opcion de busqueda", "Tipo de Busqueda", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Busqueda Secuencial", "Busqueda Binaria", "Busqueda por Interpolacion", "Busqueda por Hash"}, "Busqueda Secuencial");
+        switch (seleccion + 1) {
+            case 1:
+                busq = Integer.parseInt(JOptionPane.showInputDialog(this, "Que numero desea buscar"));
+                bus.busquedaSecuencial(lista, busq);
+                break;
+            case 2:
+                busq = Integer.parseInt(JOptionPane.showInputDialog(this, "Que numero desea buscar"));
+                bus.busquedaBinaria(lista, busq);
+                break;
+            case 3:
+                busq = Integer.parseInt(JOptionPane.showInputDialog(this, "Que numero desea buscar"));
+                bus.busquedaInterpolacion(lista, busq);
+
+                break;
+            case 4:
+                busq = Integer.parseInt(JOptionPane.showInputDialog(this, "Que numero desea buscar"));
+            // metodo de busqueda por hash
+        }
+
         mostrarIteracionList = lista.mostrarIteracion();
         //mostrarIteracionList = bubbleSort.bubbleSort(lista);
         jTextshowList.setText("RESUMEN LISTA ORDENADA : \n" + "\n" + mostrarIteracionList + "\n***Metodo Ordenamiento***");

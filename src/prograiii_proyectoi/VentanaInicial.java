@@ -225,14 +225,13 @@ public class VentanaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
         ObtenerListaNumeros obt = new ObtenerListaNumeros();
         if (rbtnAleatorio.isSelected()) {
-            if(jRadio1a100.isSelected()){
-               lista = obt.generarAleatorio(100,1);
-            } else if(jRadio100a1000.isSelected()){
-                lista =obt.generarAleatorio(1000, 100);
-            }else if(jRadio1000a10000.isSelected()){
-                lista = obt.generarAleatorio(10000,1000);
+            if (jRadio1a100.isSelected()) {
+                lista = obt.generarAleatorio(100, 1);
+            } else if (jRadio100a1000.isSelected()) {
+                lista = obt.generarAleatorioRangoMayor(1000, 100);
+            } else if (jRadio1000a10000.isSelected()) {
+                lista = obt.generarAleatorioRangoMayor(10000, 1000);
             }
-            
 
         } else if (rbtnArchivotxt.isSelected()) {
             JFileChooser fichero = new JFileChooser();

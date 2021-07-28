@@ -14,13 +14,17 @@ public class Busqueda extends ListaDoble {
 
     //Busqueda Secuencial
     public void busquedaSecuencial(ListaDoble lista, int bus) {
-
+        long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
+        TInicio = System.currentTimeMillis(); //Tomamos la hora en que inicio el algoritmo y la almacenamos en la variable inicio
         Nodo temp = lista.getInicio();
         for (int i = 0; i < lista.getLargo(); i++) {
 
             if (temp.getValue() == bus) {
-                JOptionPane.showMessageDialog(null, "el numero buscado esta en la lista");
+                TFin = System.currentTimeMillis(); //Tomamos la hora en que finalizó el algoritmo y la almacenamos en la variable T
+                tiempo = TFin - TInicio; //Calculamos los milisegundos de diferencia
+                JOptionPane.showMessageDialog(null, "el numero buscado esta en la lista" + " \n" + "El tiempo de busqueda fue: " + tiempo + " milisegundos");
                 System.out.println("Encontrado");
+
                 break;
 
             } else {
@@ -29,10 +33,13 @@ public class Busqueda extends ListaDoble {
 
             }
         }
+
     }
 
     //Busqueda Binaria LISTA
     public void busquedaBinaria(ListaDoble lista, int bus) {
+        long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
+        TInicio = System.currentTimeMillis(); //Tomamos la hora en que inicio el algoritmo y la almacenamos en la variable inicio
         int inferior = 0;
         int centro;
         int superior = lista.getLargo() - 1;
@@ -44,6 +51,9 @@ public class Busqueda extends ListaDoble {
             lista.actual = lista.obtenerIndex(lista, centro - 1);
             if (lista.actual.getValue() == bus) {
                 System.out.println("el numero buscado esta en la posicion " + (centro));
+                TFin = System.currentTimeMillis(); //Tomamos la hora en que finalizó el algoritmo y la almacenamos en la variable T
+                tiempo = TFin - TInicio; //Calculamos los milisegundos de diferencia
+                JOptionPane.showMessageDialog(null, "El numero buscado esta en la posicion " + (centro) + "\n" + "El tiempo de busqueda fue: " + tiempo + "milisegundos");
                 break;
             } else if (bus < lista.actual.getValue()) {
                 superior = centro - 1;
@@ -52,48 +62,46 @@ public class Busqueda extends ListaDoble {
             }
         }
     }
+
     //
     //
-    //
-    //        //Busqueda por Interpolacion
-    //        int numBus3;   //Numero que deseamos buscar
-    //        int numElementos; //tamaño
-    //        boolean buscas = false;
-    //        int nBus;
-    //
-    //        System.out.println("Cual numero desea buscar?");
-    //        numBus3 = input.nextInt();
-    //        numElementos = numeros.size()-1;
-    //        int inicio = 0;
-    //        int fin= numElementos;
-    //
-    //
-    //        for (int j = 0; j<numeros.size();j++){
-    //            nBus= ((fin)*(numBus3-(int)numeros.get(inicio))/((int)numeros.get(fin)-(int)numeros.get(inicio)));
-    //
-    //            if(nBus>fin){
-    //                break;
-    //            }else if(nBus<0){
-    //                nBus =inicio;
-    //            }
-    //            if(nBus >= inicio && nBus<= fin){
-    //                if((int)numeros.get(nBus)==numBus3){
-    //                    System.out.println("el numero buscado esta en la posicion " + (nBus));
-    //                    buscas = true;
-    //                    break;
-    //                }else if((int)numeros.get(nBus)<numBus3){
-    //                    inicio = inicio  - 1;
-    //
-    //                }else if((int)numeros.get(nBus)>numBus3){
-    //                    inicio = inicio + 1;
-    //                }
-    //            }
-    //            if (buscas == false){
-    //                System.out.println("el numero no se encuentra en la lista");
-    //            }
-    //        }
-    //    }
-    //}
+    public void busquedaInterpolacion(ListaDoble lista, int bus) {
+        int numElementos; //tamaño
+        boolean buscas = false;
+        int nBus;
+
+        numElementos = lista.getLargo() - 1;
+        int inicial = 0;
+        int fina = numElementos;
+// Índice = Bajo + (((Tecla – Arr[Low]) * (Alto – Bajo)) / Arr[High] -Arr[Low] ). algoritmo 
+        for (int j = 0; j < lista.getLargo(); j++) {
+            nBus = inicial + ((bus - lista.inicio.getValue()) * (fina - inicial)) / lista.fin.getValue() - lista.inicio.getValue();
+            System.out.println(nBus);
+
+            if (nBus > fina) {
+                break;
+            } else if (nBus < 0) {
+                nBus = inicial;
+            }
+            lista.actual = lista.obtenerIndex(lista, nBus);
+            if (nBus >= inicial && nBus <= fina) {
+                if ((lista.actual.getValue() == bus)) {
+                    System.out.println("el numero buscado esta en la posicion " + (nBus));
+                    buscas = true;
+                    break;
+                    //esta parte del metodo esta fallando, debe avanzar o retroceder dependiendo del valor de bus(numero buscado)
+                } else if (lista.actual.getValue() < bus) {
+                    inicial = inicial - 1;
+
+                } else if (lista.actual.getValue() > bus) {
+                    inicial = inicial + 1;
+                }
+            }
+            if (buscas == false) {
+                System.out.println("el numero no se encuentra en la lista");
+            }
+        }
+    }
 
     public int getNumBuscado() {
         return numBuscado;
