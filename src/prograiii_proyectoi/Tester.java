@@ -71,9 +71,10 @@ public class Tester {
                 }
 
                 case 3: {
-                    bS.bubbleSort(lista);
+                    /*bS.bubbleSort(lista);
                     System.out.println("**LISTA ORDENADA**");
-                    lista.mostrar();
+                    lista.mostrar();*/
+                    lista.clonarListaArray(lista);
                     break;
                 }
 

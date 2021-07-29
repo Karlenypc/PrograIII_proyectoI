@@ -46,19 +46,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextshowList = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        jbtnBusqueda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MainWindow");
 
+        jPanel1.setBackground(new java.awt.Color(100, 105, 72));
+
+        jbtnOrdenamiento.setBackground(new java.awt.Color(238, 235, 219));
+        jbtnOrdenamiento.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
+        jbtnOrdenamiento.setForeground(new java.awt.Color(43, 36, 32));
         jbtnOrdenamiento.setText("Aplicar Ordenamiento BubbleSort");
+        jbtnOrdenamiento.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jbtnOrdenamiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnOrdenamientoActionPerformed(evt);
             }
         });
 
+        jScrollPane1.setBackground(new java.awt.Color(43, 36, 32));
+        jScrollPane1.setForeground(new java.awt.Color(43, 36, 32));
+        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(43, 36, 32)));
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jTextshowList.setBackground(new java.awt.Color(238, 235, 219));
         jTextshowList.setColumns(20);
+        jTextshowList.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
+        jTextshowList.setForeground(new java.awt.Color(28, 24, 21));
         jTextshowList.setRows(5);
+        jTextshowList.setCaretColor(new java.awt.Color(28, 24, 21));
         jTextshowList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextshowListMouseClicked(evt);
@@ -81,10 +97,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Realizar Busqueda");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbtnBusqueda.setBackground(new java.awt.Color(238, 235, 219));
+        jbtnBusqueda.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
+        jbtnBusqueda.setForeground(new java.awt.Color(43, 36, 32));
+        jbtnBusqueda.setText("Realizar Busqueda");
+        jbtnBusqueda.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jbtnBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtnBusquedaActionPerformed(evt);
             }
         });
 
@@ -101,7 +121,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jbtnOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addComponent(jbtnBusqueda)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -112,8 +132,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnOrdenamiento)
-                    .addComponent(jButton1))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(jbtnBusqueda))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,7 +164,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextshowListMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbtnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBusquedaActionPerformed
         // TODO add your handling code here:
         Busqueda bus = new Busqueda();
         int busq;
@@ -171,7 +191,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         mostrarIteracionList = lista.mostrarIteracion();
         //mostrarIteracionList = bubbleSort.bubbleSort(lista);
         jTextshowList.setText("RESUMEN LISTA ORDENADA : \n" + "\n" + mostrarIteracionList + "\n***Metodo Ordenamiento***");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbtnBusquedaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,11 +229,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextArea jTextshowList;
+    private javax.swing.JButton jbtnBusqueda;
     private javax.swing.JButton jbtnOrdenamiento;
     // End of variables declaration//GEN-END:variables
 }

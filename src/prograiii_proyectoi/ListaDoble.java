@@ -14,7 +14,7 @@ public class ListaDoble {
      Nodo inicio;
      Nodo actual;
      Nodo fin;
-    int largo;
+     int largo;
 
     public ListaDoble() //Inicializamos la lista
     {
@@ -124,11 +124,25 @@ public class ListaDoble {
             clonLista.insertar_alFinal(temp.getValue());
             temp = temp.getNext();
         }
-        lista.mostrar();
-        clonLista.mostrar();
         return clonLista;
     }
     
+    //Metodo para transformar una listaDoble a Array
+    public String[] clonarListaArray(ListaDoble lista) {
+        
+        String[] resultado = new String[lista.largo];
+        Nodo temp = lista.getInicio();
+
+        for(int i = 0; i < lista.getLargo(); i++) {
+            String x = Integer.toString(temp.getValue());
+            resultado[i] = x;
+            temp = temp.getNext();
+            System.out.print(resultado[i] + " ");
+        }
+        return resultado;
+    }
+    
+    //Metodo para obtener el indice de un nodo
     public Nodo obtenerIndex(ListaDoble lista, int index) {
         lista.actual = lista.inicio;
         for(int i = 0; i < lista.getLargo(); i++) {
