@@ -168,7 +168,9 @@ public class Busqueda extends ListaDoble {
         }
     }
     
-    //Busqueda por Hash
+    //Busqueda por Hash 
+    
+    
     
 
     public int getNumBuscado() {

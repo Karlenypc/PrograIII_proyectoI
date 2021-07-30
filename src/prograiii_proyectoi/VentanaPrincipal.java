@@ -185,7 +185,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 break;
             case 4:
                 busq = Integer.parseInt(JOptionPane.showInputDialog(this, "Que numero desea buscar"));
-            // metodo de busqueda por hash
+               Busquedasearch hash = new Busquedasearch(25);
+               String busqueda = Integer.toString(busq);
+               hash.busquedaHash(busqueda, lista);
+               
         }
 
         mostrarIteracionList = lista.mostrarIteracion();
