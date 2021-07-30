@@ -17,7 +17,7 @@ public class Busquedasearch extends Busqueda{
         int i;
         for (i=0;i< cadenaArreglo.length;i++){
             String elemento =cadenaArreglo[i];
-            int indiceArreglo= Integer.parseInt(elemento)%24;
+            int indiceArreglo= Integer.parseInt(elemento)%25;
             System.out.println("el indice es " + indiceArreglo + "para el elemento " + elemento);
 
             // tratando las colisiones
@@ -34,29 +34,64 @@ public class Busquedasearch extends Busqueda{
 
     public String buscarClave (String elemento){
         
-        int indiceArreglo = Integer.parseInt(elemento)%24;
+        int indiceArreglo = Integer.parseInt(elemento)%25;
         int contador = 0;
         while (arreglo[indiceArreglo] != "-1"){
-            if(arreglo[indiceArreglo]==elemento){
+            System.out.println(arreglo[indiceArreglo]);
+            if(arreglo[indiceArreglo].equals(elemento)){
+                
                 System.out.println("elemento encontrado");
                 return arreglo [indiceArreglo];
             } indiceArreglo ++;
             indiceArreglo &= tamanio;
             contador++;
-            if(contador > 24){
+            if(contador > 25){
                 break;
             }
         }
         return null;
 
     }
+    
+    public void mostrar() {
+        
+        int incremento = 0, j, i;
+        for(i = 0; i < 1; i++) {
+            incremento =+ 25;
+            for(j = 0; j < 500; j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+            for(j = incremento - 25; j < incremento; j++) {
+                System.out.format("| %3s " + " ", j);
+            }
+            System.out.println("|");
+            for(int n = 0; n < 71; n++) {
+                System.out.print("-");
+            }
+            System.out.println();
+            for(j = incremento - 25; j < incremento; j++) {
+                if(arreglo[j].equals("-1")) {
+                    System.out.print("|   ");
+                } else {
+                    System.out.print(String.format("| %3s " + " ", arreglo[j]));
+                }
+            }
+            System.out.println("|");
+            for(j = 0; j < 500; j++) {
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+    }
+    
     public  void busquedaHash(String bus, ListaDoble lista) {
        
         Busquedasearch hash = new Busquedasearch(lista.getLargo());
         String [ ] elementos= new String[lista.getLargo()];
         elementos= lista.clonarListaArray(lista);
         hash.funcionHash(elementos, hash.arreglo);
-
+        hash.mostrar();
         String buscado = hash.buscarClave(bus);
         if(buscado == null){
             System.out.println("no encontrado");
