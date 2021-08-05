@@ -11,10 +11,10 @@ package prograiii_proyectoi;
  */
 public class ListaDoble {
 
-     Nodo inicio;
-     Nodo actual;
-     Nodo fin;
-     int largo;
+    Nodo inicio;
+    Nodo actual;
+    Nodo fin;
+    int largo;
 
     public ListaDoble() //Inicializamos la lista
     {
@@ -67,9 +67,7 @@ public class ListaDoble {
         return aux;
     }
 
-    
     //Metodo para eliminar un valor especifico FALTA!!!
-    
     public void mostrar() {
         Nodo temp = inicio;
         while (temp != null) {
@@ -78,7 +76,7 @@ public class ListaDoble {
         }
         System.out.println("");
     }
-    
+
     public String mostrarIteracion() {
         String resultado = "";
         Nodo temp = inicio;
@@ -86,24 +84,9 @@ public class ListaDoble {
             resultado += "<=>" + "[" + temp.getValue() + "]" + "<=>";
             temp = temp.getNext();
         }
-        resultado += "\n" + "\n";
+        resultado += "\n";
         return resultado;
     }
-    
-    /*
-    public void mostrar(ListaDoble lista) {
-        if(lista.getInicio() != null) {
-        Nodo temp = inicio;
-        while (temp != null) {
-            System.out.print("<=>" + "[" + temp.getValue() + "]" + "<=>");
-            temp = temp.getNext();
-        }
-        System.out.println("");
-        
-        } else {
-            System.out.println("La lista se encuentra vacia!");
-        }
-    }*/
 
     //Mostrar invertido
     public void mostrarRegreso() {
@@ -119,43 +102,40 @@ public class ListaDoble {
     public ListaDoble clonarLista(ListaDoble lista) {
         ListaDoble clonLista = new ListaDoble();
         Nodo temp = lista.getInicio();
-        for(int i = 0; i < lista.getLargo(); i++) 
-        {
+        for (int i = 0; i < lista.getLargo(); i++) {
             clonLista.insertar_alFinal(temp.getValue());
             temp = temp.getNext();
         }
         return clonLista;
     }
-    
+
     //Metodo para transformar una listaDoble a Array
     public String[] clonarListaArray(ListaDoble lista) {
-        
         String[] resultado = new String[lista.largo];
         Nodo temp = lista.getInicio();
 
-        for(int i = 0; i < lista.getLargo(); i++) {
+        for (int i = 0; i < lista.getLargo(); i++) {
             String x = Integer.toString(temp.getValue());
             resultado[i] = x;
             temp = temp.getNext();
-            System.out.print(resultado[i] + " ");
+            //System.out.print(resultado[i] + " ");
         }
         return resultado;
     }
-    
+
     //Metodo para obtener el indice de un nodo
     public Nodo obtenerIndex(ListaDoble lista, int index) {
         lista.actual = lista.inicio;
-        for(int i = 0; i < lista.getLargo(); i++) {
+        for (int i = 0; i < lista.getLargo(); i++) {
             if (i == index) {
                 break;
-            } 
-            else {
+            } else {
                 lista.actual = lista.actual.getNext();
             }
         }
-        return lista.actual; 
+        return lista.actual;
     }
-    
+
     public Nodo getInicio() {
         return inicio;
     }
@@ -183,5 +163,5 @@ public class ListaDoble {
     public int getLargo() {
         return largo;
     }
-    
+
 }

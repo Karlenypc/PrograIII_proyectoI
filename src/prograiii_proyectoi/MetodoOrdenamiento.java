@@ -35,7 +35,7 @@ public class MetodoOrdenamiento {    //BubbleSort
                     }
                     aux2 = aux2.getNext();
                     if (cambios) {
-                        resultado += lista.mostrarIteracion();
+                        resultado += lista.mostrarIteracion() + "\n";
                     }
                     cambios = false;
                 }
