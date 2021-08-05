@@ -120,7 +120,8 @@ public class Busqueda extends ListaDoble {
         // metodo para busqueda Binaria
         while (inferior <= superior) {
             centro = (superior + inferior) / 2;
-            resultado += "Centro de la lista " + centro;
+            resultado += lista.mostrarIteracion();
+            resultado += "Centro de la lista: " + centro + "\n" + "\n";
             if (centro <= 0) {
                 break;
             }
@@ -131,8 +132,8 @@ public class Busqueda extends ListaDoble {
                 System.out.println("el numero buscado esta en la posicion " + (centro - 1));
                 TFin = System.currentTimeMillis(); //Tomamos la hora en que finalizó el algoritmo y la almacenamos en la variable T
                 tiempo = TFin - TInicio; //Calculamos los milisegundos de diferencia
-                JOptionPane.showMessageDialog(null, "El numero buscado esta en la posicion " + (centro - 1) + "\n" + "El tiempo de busqueda fue: " + tiempo + " milisegundos");
-                resultado += "\n"+ "El numero buscado esta en la posicion " + (centro - 1) + "\n" + "El tiempo de busqueda fue: " + tiempo + " milisegundos";
+                //JOptionPane.showMessageDialog(null, "El numero buscado esta en la posicion " + (centro - 1) + "\n" + "El tiempo de busqueda fue: " + tiempo + " milisegundos");
+                resultado += "\n"+ "El numero buscado esta en la posicion: " + (centro - 1) + "\n" + "El tiempo de busqueda fue: " + tiempo + " milisegundos";
                 cambios = true;
                 break;
             } else if (bus < lista.actual.getValue()) {
@@ -142,7 +143,8 @@ public class Busqueda extends ListaDoble {
             }
         }
         if (cambios == false) {
-            JOptionPane.showMessageDialog(null, "El numero buscado no se encuentra en la lista.");
+            //JOptionPane.showMessageDialog(null, "El numero buscado no se encuentra en la lista.");
+            resultado += "\nEl número " + bus + "  NO se encuentra en la lista.";
         }
         return resultado;
     }

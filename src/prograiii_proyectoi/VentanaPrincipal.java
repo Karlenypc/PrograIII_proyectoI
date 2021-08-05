@@ -167,6 +167,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void jbtnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnBusquedaActionPerformed
         // TODO add your handling code here:
         Busqueda bus = new Busqueda();
+        Busquedasearch hash = new Busquedasearch(lista.getLargo());
         int busq = 0;
         int seleccion = JOptionPane.showOptionDialog(null, "Seleccione una opcion de busqueda", "Tipo de Busqueda", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Busqueda Secuencial", "Busqueda Binaria", "Busqueda por Interpolacion", "Busqueda por Hash"}, "Busqueda Secuencial");
         switch (seleccion + 1) {
@@ -184,7 +185,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 break;
             case 4:
                 busq = Integer.parseInt(JOptionPane.showInputDialog(this, "Que numero desea buscar"));
-                Busquedasearch hash = new Busquedasearch(lista.getLargo());
+                //Busquedasearch hash = new Busquedasearch(lista.getLargo());
                 String busqueda = Integer.toString(busq);
                 hash.busquedaHash(busqueda, lista);
 
@@ -198,7 +199,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         } else if (seleccion == 2) {
             mostrarIteracionBusqueda = bus.busquedaInterpolacionIteraccion(lista, busq);
         } else if (seleccion == 3) {
-            
+            mostrarIteracionBusqueda = hash.mostrarIteracion(hash.arreglo);
         }
        
         jTextshowList.setText("RESUMEN LISTA ORDENADA : \n" + "\n" + mostrarIteracionList + "\n***Metodo Ordenamiento***\n" + "\n" + mostrarIteracionBusqueda);

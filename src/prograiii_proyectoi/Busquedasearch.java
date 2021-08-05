@@ -102,6 +102,50 @@ public class Busquedasearch extends Busqueda{
             System.out.println("no encontrado");
         }
     }
+    
+    public String mostrarIteracion(String[] arreglo) {
+        String resultado = "";
+        int incremento = 0, j, i;
+        for(i = 0; i < 1; i++) {
+            incremento =+ 25;
+            for(j = 0; j < 500; j++) {
+                System.out.print("-");
+                resultado += "-";
+            }
+            System.out.println();
+            resultado += "\n";
+            for(j = incremento - 25; j < incremento; j++) {
+                System.out.format("| %3s " + " ", j);
+                resultado += String.format("| %3s " + " ", j);
+            }
+            System.out.println("|");
+            resultado += "|\n";
+            for(int n = 0; n < 71; n++) {
+                System.out.print("-");
+                resultado += "-";
+            }
+            System.out.println();
+            resultado += "\n";
+            for(j = incremento - 25; j < incremento; j++) {
+                if(arreglo[j].equals("-1")) {
+                    System.out.print("|   ");
+                    resultado += "|   ";
+                } else {
+                    System.out.print(String.format("| %3s " + " ", arreglo[j]));
+                    resultado += String.format("| %3s " + " ", arreglo[j]);
+                }
+            }
+            System.out.println("|");
+            resultado += "|\n";
+            for(j = 0; j < 500; j++) {
+                System.out.print("-");
+                resultado += "-";
+            }
+            System.out.println();
+            resultado += "\n";
+        }
+        return resultado;
+    }
 }
 
     
