@@ -194,7 +194,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (seleccion == 0) {
             mostrarIteracionBusqueda = bus.busquedaSecuencialIteracion(lista, busq);
         } else if (seleccion == 1) {
-           
+           mostrarIteracionBusqueda = bus.busquedaBinariaIteracion(lista, busq);
         } else if (seleccion == 2) {
             mostrarIteracionBusqueda = bus.busquedaInterpolacionIteraccion(lista, busq);
         } else if (seleccion == 3) {

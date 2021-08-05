@@ -1,12 +1,13 @@
-
 package prograiii_proyectoi;
 
 
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 public class Busquedasearch extends Busqueda{
     String [] arreglo;
     int tamanio, contador;
+    
 
     public Busquedasearch (int tam){
     tamanio = tam;
@@ -33,14 +34,18 @@ public class Busquedasearch extends Busqueda{
     // metodo para buscar una clave
 
     public String buscarClave (String elemento){
+        long TInicio, TFin, tiempo; //Variables para determinar el tiempo de ejecución
+        TInicio = System.currentTimeMillis(); //Tomamos la hora en que inicio el algoritmo y la almacenamos en la variable inicio
         
         int indiceArreglo = Integer.parseInt(elemento)%25;
         int contador = 0;
         while (arreglo[indiceArreglo] != "-1"){
             System.out.println(arreglo[indiceArreglo]);
             if(arreglo[indiceArreglo].equals(elemento)){
-                
+                TFin = System.currentTimeMillis(); //Tomamos la hora en que finalizó el algoritmo y la almacenamos en la variable T
+                tiempo = TFin - TInicio; //Calculamos los milisegundos de diferencia
                 System.out.println("elemento encontrado");
+                JOptionPane.showMessageDialog(null, "Elemento encontrado en la clave " + arreglo[indiceArreglo] + "\n" +" En el tiempo de "+tiempo);
                 return arreglo [indiceArreglo];
             } indiceArreglo ++;
             indiceArreglo &= tamanio;
